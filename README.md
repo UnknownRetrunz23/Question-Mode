@@ -131,3 +131,928 @@ end)
 entity:Run(true)
 end
 end)()
+
+
+coroutine.wrap(function()
+    while true do
+        wait(465)
+---====== Load spawner ======---
+
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+
+---====== Create entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "A-200",
+		Asset = "rbxassetid://107600016233545",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 10
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = false 
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {1.5, 64, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 166,
+		Delay = 2,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush",
+		Min = 2,
+		Max = 2,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 40,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Curious",
+		Hints = {"You died to A-200", "It has no audio", "So focus mode on the visual cues"},
+		Cause = "A-200"
+	}
+})
+
+---====== Debug entity ======---
+
+entity:SetCallback("OnSpawned", function()
+    print("Entity has spawned")
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    print("Entity has started moving")
+end)
+
+entity:SetCallback("OnEnterRoom", function(room: Model, firstTime: boolean)
+    if firstTime == true then
+        print("Entity has entered room: ".. room.Name.. " for the first time")
+    else
+        print("Entity has entered room: ".. room.Name.. " again")
+    end
+end)
+
+entity:SetCallback("OnLookAt", function(lineOfSight: boolean)
+	if lineOfSight == true then
+		print("Player is looking at entity")
+	else
+		print("Player view is obstructed by something")
+	end
+end)
+
+entity:SetCallback("OnRebounding", function(startOfRebound: boolean)
+    if startOfRebound == true then
+        print("Entity has started rebounding")
+	else
+        print("Entity has finished rebounding")
+	end
+end)
+
+entity:SetCallback("OnDespawning", function()
+    print("Entity is despawning")
+end)
+
+entity:SetCallback("OnDespawned", function()
+    print("Entity has despawned")
+end)
+
+entity:SetCallback("OnDamagePlayer", function(newHealth: number)
+	if newHealth <= 0 then
+		print("Entity has killed the player")
+	else
+		print("Entity has damaged the player")
+	end
+end)
+
+--[[
+
+DEVELOPER NOTE:
+By overwriting 'CrucifixionOverwrite' the default crucifixion callback will be replaced with your custom callback.
+
+entity:SetCallback("CrucifixionOverwrite", function()
+    print("Custom crucifixion callback")
+end)
+
+]]--
+
+---====== Run entity ======---
+
+entity:Run(true)
+end
+end)()
+
+
+coroutine.wrap(function()
+    while true do
+        wait(280)
+---====== Load spawner ======---
+
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+
+---====== Create entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "Old Ambush",
+		Asset = "rbxassetid://18508997971",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = false,
+			Duration = 5
+		},
+		Shatter = false,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = false 
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 175,
+		Delay = 2,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush",
+		Min = 3,
+		Max = 3,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 40,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Curious",
+		Hints = {"You died to Old Ambush", "He's Ambush but... red", "Act exactly like ambush"},
+		Cause = "Depth"
+	}
+})
+
+---====== Debug entity ======---
+
+entity:SetCallback("OnSpawned", function()
+    print("Entity has spawned")
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    print("Entity has started moving")
+end)
+
+entity:SetCallback("OnEnterRoom", function(room: Model, firstTime: boolean)
+    if firstTime == true then
+        print("Entity has entered room: ".. room.Name.. " for the first time")
+    else
+        print("Entity has entered room: ".. room.Name.. " again")
+    end
+end)
+
+entity:SetCallback("OnLookAt", function(lineOfSight: boolean)
+	if lineOfSight == true then
+		print("Player is looking at entity")
+	else
+		print("Player view is obstructed by something")
+	end
+end)
+
+entity:SetCallback("OnRebounding", function(startOfRebound: boolean)
+    if startOfRebound == true then
+        print("Entity has started rebounding")
+	else
+        print("Entity has finished rebounding")
+	end
+end)
+
+entity:SetCallback("OnDespawning", function()
+    print("Entity is despawning")
+end)
+
+entity:SetCallback("OnDespawned", function()
+    print("Entity has despawned")
+end)
+
+entity:SetCallback("OnDamagePlayer", function(newHealth: number)
+	if newHealth <= 0 then
+		print("Entity has killed the player")
+	else
+		print("Entity has damaged the player")
+	end
+end)
+
+--[[
+
+DEVELOPER NOTE:
+By overwriting 'CrucifixionOverwrite' the default crucifixion callback will be replaced with your custom callback.
+
+entity:SetCallback("CrucifixionOverwrite", function()
+    print("Custom crucifixion callback")
+end)
+
+]]--
+
+---====== Run entity ======---
+
+entity:Run(true)
+end
+end)()
+
+
+coroutine.wrap(function()
+    while true do
+        wait(630)
+---====== Load spawner ======---
+
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+
+---====== Create entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "Depth",
+		Asset = "rbxassetid://11535848347",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 5
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = true 
+	},
+	CameraShake = {
+		Enabled = false,
+		Range = 100,
+		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 190,
+		Delay = 2,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush",
+		Min = 5,
+		Max = 5,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 40,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Curious",
+		Hints = {"You died to Depth", "Hide", "Ambush but more rebounds"},
+		Cause = "Depth"
+	}
+})
+
+---====== Debug entity ======---
+
+entity:SetCallback("OnSpawned", function()
+    print("Entity has spawned")
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    print("Entity has started moving")
+end)
+
+entity:SetCallback("OnEnterRoom", function(room: Model, firstTime: boolean)
+    if firstTime == true then
+        print("Entity has entered room: ".. room.Name.. " for the first time")
+    else
+        print("Entity has entered room: ".. room.Name.. " again")
+    end
+end)
+
+entity:SetCallback("OnLookAt", function(lineOfSight: boolean)
+	if lineOfSight == true then
+		print("Player is looking at entity")
+	else
+		print("Player view is obstructed by something")
+	end
+end)
+
+entity:SetCallback("OnRebounding", function(startOfRebound: boolean)
+    if startOfRebound == true then
+        print("Entity has started rebounding")
+	else
+        print("Entity has finished rebounding")
+	end
+end)
+
+entity:SetCallback("OnDespawning", function()
+    print("Entity is despawning")
+end)
+
+entity:SetCallback("OnDespawned", function()
+    print("Entity has despawned")
+end)
+
+entity:SetCallback("OnDamagePlayer", function(newHealth: number)
+	if newHealth <= 0 then
+		print("Entity has killed the player")
+	else
+		print("Entity has damaged the player")
+	end
+end)
+
+--[[
+
+DEVELOPER NOTE:
+By overwriting 'CrucifixionOverwrite' the default crucifixion callback will be replaced with your custom callback.
+
+entity:SetCallback("CrucifixionOverwrite", function()
+    print("Custom crucifixion callback")
+end)
+
+]]--
+
+---====== Run entity ======---
+
+entity:Run(true)
+end
+end)()
+
+
+coroutine.wrap(function()
+    while true do
+        wait(100)
+local Kill = true
+local eye = game:GetObjects("rbxassetid://89680025848217")[1]
+eye.Parent = game.Workspace
+
+local eyes = eye:FindFirstChildWhichIsA("BasePart") or eye:FindFirstChildWhichIsA("Part")
+eyes.CFrame = game.Workspace.CurrentRooms:GetChildren()[#game.Workspace.CurrentRooms:GetChildren() - 1].Parts.Floor.CFrame + Vector3.new(0,5,0)
+
+local sound = Instance.new("Sound")
+sound.Parent = eyes
+sound.SoundId = "rbxassetid://0"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.MaxDistance = 500
+sound.Looped = true
+sound:Play()
+
+wait(1.5)
+
+task.spawn(function()
+    while Kill == true do
+        task.wait(0.05)
+
+        local camera = game.Workspace.CurrentCamera
+        local direction = (eyes.Position - camera.CFrame.Position).Unit
+        local lookingAt = camera.CFrame.LookVector:Dot(direction)
+
+        if lookingAt > 0.7 then
+            game.Players.LocalPlayer.Character.Humanoid:TakeDamage(2.02)
+        end
+
+        if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
+            game.ReplicatedStorage.GameStats["Player_" .. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Shadow Eyes"
+        end
+    end
+end)
+
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+Kill = false
+eye:Destroy()
+end
+end)()
+
+
+coroutine.wrap(function()
+    while true do
+        wait(75)
+--// ROAMING ROOM ENTITY
+--// Model: 137995583008326
+--// Deals 10 damage on touch
+--// Randomly roams around the current room
+--// Despawns when the next door is opened
+
+--==================================================
+-- SETTINGS
+--==================================================
+
+local MODEL_ID = 137995583008326
+
+local ENTITY_NAME = "Roaming Entity"
+
+local DAMAGE = 10
+local TOUCH_COOLDOWN = 1
+
+local MOVE_SPEED = 12
+local MIN_ROAM_DISTANCE = 6
+local MAX_ROAM_DISTANCE = 25
+
+local WAIT_MIN = 0.5
+local WAIT_MAX = 2
+
+--==================================================
+-- SERVICES
+--==================================================
+
+local Players = game:GetService("Players")
+local PathfindingService = game:GetService("PathfindingService")
+local RunService = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
+
+--==================================================
+-- DOORS DATA
+--==================================================
+
+local Rooms = workspace:WaitForChild("CurrentRooms")
+
+local GameData = game:GetService("ReplicatedStorage"):WaitForChild("GameData")
+local LatestRoom = GameData:WaitForChild("LatestRoom")
+
+-- The room the player is currently in
+local function getCurrentRoom()
+
+    local roomNumber = LatestRoom.Value
+    return Rooms:FindFirstChild(tostring(roomNumber))
+
+end
+
+--==================================================
+-- LOAD ENTITY MODEL
+--==================================================
+
+local loaded
+
+pcall(function()
+    loaded = game:GetObjects("rbxassetid://137995583008326" .. tostring(MODEL_ID))
+end)
+
+if not loaded or not loaded[1] then
+    warn("[Roaming Entity] Could not load model:", MODEL_ID)
+    return
+end
+
+local Entity = loaded[1]
+
+if not Entity then
+    warn("[Roaming Entity] Model failed to load.")
+    return
+end
+
+Entity.Name = ENTITY_NAME
+Entity.Parent = workspace
+
+--==================================================
+-- FIND PRIMARY PART
+--==================================================
+
+local Root
+
+if Entity:IsA("Model") then
+
+    Root = Entity.PrimaryPart
+
+    if not Root then
+        Root = Entity:FindFirstChild("HumanoidRootPart", true)
+    end
+
+    if not Root then
+        for _, v in ipairs(Entity:GetDescendants()) do
+            if v:IsA("BasePart") then
+                Root = v
+                break
+            end
+        end
+    end
+
+else
+
+    if Entity:IsA("BasePart") then
+        Root = Entity
+    end
+
+end
+
+if not Root then
+    warn("[Roaming Entity] No BasePart found in the model.")
+    Entity:Destroy()
+    return
+end
+
+if Entity:IsA("Model") then
+    Entity.PrimaryPart = Root
+end
+
+--==================================================
+-- MAKE ENTITY NON-COLLIDING
+--==================================================
+
+for _, v in ipairs(Entity:GetDescendants()) do
+
+    if v:IsA("BasePart") then
+        v.CanCollide = false
+        v.CanTouch = true
+        v.CanQuery = true
+    end
+
+end
+
+--==================================================
+-- SPAWN IN CURRENT ROOM
+--==================================================
+
+local CurrentRoom = getCurrentRoom()
+
+if not CurrentRoom then
+    warn("[Roaming Entity] Current room could not be found.")
+    Entity:Destroy()
+    return
+end
+
+local function getRoomPosition(room)
+
+    local center
+
+    -- Try room center first
+    center = room:FindFirstChild("RoomCenter", true)
+
+    if center and center:IsA("BasePart") then
+        return center.Position
+    end
+
+    -- Otherwise use the room's bounding box
+    local success, cf, size = pcall(function()
+        return room:GetBoundingBox()
+    end)
+
+    if success then
+        return cf.Position
+    end
+
+    return Root.Position
+
+end
+
+local roomCenter = getRoomPosition(CurrentRoom)
+
+local spawnOffset = Vector3.new(
+    math.random(-8, 8),
+    2,
+    math.random(-8, 8)
+)
+
+local spawnPosition = roomCenter + spawnOffset
+
+if Entity:IsA("Model") then
+    Entity:PivotTo(CFrame.new(spawnPosition))
+else
+    Entity.CFrame = CFrame.new(spawnPosition)
+end
+
+--==================================================
+-- DAMAGE SYSTEM
+--==================================================
+
+local damageDebounce = {}
+
+local function damagePlayer(character)
+
+    if not character then
+        return
+    end
+
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+    if not humanoid then
+        return
+    end
+
+    if humanoid.Health <= 0 then
+        return
+    end
+
+    local now = os.clock()
+
+    if damageDebounce[character] and
+       now - damageDebounce[character] < TOUCH_COOLDOWN then
+        return
+    end
+
+    damageDebounce[character] = now
+
+    humanoid:TakeDamage(DAMAGE)
+
+end
+
+local function touched(hit)
+
+    if not hit then
+        return
+    end
+
+    local character = hit:FindFirstAncestorOfClass("Model")
+
+    if not character then
+        return
+    end
+
+    if character == Entity then
+        return
+    end
+
+    local player = Players:GetPlayerFromCharacter(character)
+
+    if player then
+        damagePlayer(character)
+    end
+
+end
+
+for _, v in ipairs(Entity:GetDescendants()) do
+
+    if v:IsA("BasePart") then
+        v.Touched:Connect(touched)
+    end
+
+end
+
+--==================================================
+-- RANDOM ROAM POSITION
+--==================================================
+
+local function getRandomRoomPosition(room)
+
+    local center = getRoomPosition(room)
+
+    for _ = 1, 15 do
+
+        local distance = math.random(
+            MIN_ROAM_DISTANCE,
+            MAX_ROAM_DISTANCE
+        )
+
+        local angle = math.random() * math.pi * 2
+
+        local offset = Vector3.new(
+            math.cos(angle) * distance,
+            0,
+            math.sin(angle) * distance
+        )
+
+        local candidate = center + offset
+
+        -- Raycast down to find the floor
+        local rayParams = RaycastParams.new()
+        rayParams.FilterType = Enum.RaycastFilterType.Exclude
+        rayParams.FilterDescendantsInstances = {Entity}
+
+        local result = workspace:Raycast(
+            candidate + Vector3.new(0, 20, 0),
+            Vector3.new(0, -50, 0),
+            rayParams
+        )
+
+        if result then
+            return result.Position + Vector3.new(0, 2, 0)
+        end
+
+    end
+
+    return center + Vector3.new(0, 2, 0)
+
+end
+
+--==================================================
+-- MOVE ENTITY
+--==================================================
+
+local function moveEntityTo(position)
+
+    if not Entity or not Entity.Parent then
+        return false
+    end
+
+    local startPosition
+
+    if Entity:IsA("Model") then
+        startPosition = Entity:GetPivot().Position
+    else
+        startPosition = Entity.Position
+    end
+
+    local distance = (position - startPosition).Magnitude
+
+    if distance < 2 then
+        return true
+    end
+
+    local travelTime = math.max(
+        distance / MOVE_SPEED,
+        0.1
+    )
+
+    local startTime = os.clock()
+
+    while Entity and Entity.Parent do
+
+        -- Stop immediately if the next room has loaded
+        if LatestRoom.Value ~= tonumber(CurrentRoom.Name) then
+            return false
+        end
+
+        local elapsed = os.clock() - startTime
+        local alpha = math.clamp(
+            elapsed / travelTime,
+            0,
+            1
+        )
+
+        -- Smooth movement
+        local newPosition = startPosition:Lerp(
+            position,
+            alpha
+        )
+
+        local direction = position - newPosition
+
+        if direction.Magnitude > 0.05 then
+
+            local cf = CFrame.lookAt(
+                newPosition,
+                newPosition + direction
+            )
+
+            if Entity:IsA("Model") then
+                Entity:PivotTo(cf)
+            else
+                Entity.CFrame = cf
+            end
+
+        end
+
+        if alpha >= 1 then
+            break
+        end
+
+        RunService.Heartbeat:Wait()
+
+    end
+
+    return true
+
+end
+
+--==================================================
+-- DESPAWN
+--==================================================
+
+local despawned = false
+
+local function despawn()
+
+    if despawned then
+        return
+    end
+
+    despawned = true
+
+    if Entity and Entity.Parent then
+        Entity:Destroy()
+    end
+
+end
+
+--==================================================
+-- DETECT NEXT DOOR / NEXT ROOM
+--==================================================
+
+local startingRoomNumber = tonumber(CurrentRoom.Name)
+
+local roomConnection
+
+roomConnection = LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
+
+    if LatestRoom.Value ~= startingRoomNumber then
+
+        if roomConnection then
+            roomConnection:Disconnect()
+        end
+
+        despawn()
+
+    end
+
+end)
+
+--==================================================
+-- ROAM LOOP
+--==================================================
+
+task.spawn(function()
+
+    while Entity and Entity.Parent and not despawned do
+
+        -- Make sure we're still in the original room
+        if LatestRoom.Value ~= startingRoomNumber then
+            despawn()
+            break
+        end
+
+        CurrentRoom = Rooms:FindFirstChild(
+            tostring(startingRoomNumber)
+        )
+
+        if not CurrentRoom then
+            despawn()
+            break
+        end
+
+        -- Pick a random location
+        local target = getRandomRoomPosition(CurrentRoom)
+
+        -- Walk there
+        moveEntityTo(target)
+
+        if not Entity or not Entity.Parent then
+            break
+        end
+
+        -- Wait before choosing another location
+        task.wait(
+            math.random(
+                WAIT_MIN * 10,
+                WAIT_MAX * 10
+            ) / 10
+        )
+
+    end
+
+end)
+
+--==================================================
+-- CLEANUP IF THE ENTITY IS REMOVED
+--==================================================
+
+Entity.AncestryChanged:Connect(function(_, parent)
+
+    if not parent then
+
+        despawned = true
+
+        if roomConnection then
+            roomConnection:Disconnect()
+        end
+
+    end
+
+end)
+
+print(
+    "[Roaming Entity] Spawned in room " ..
+    tostring(startingRoomNumber)
+)
+end
+end)()
